@@ -1,0 +1,9 @@
+find-me
+
+A twitter-based geolocation inference model based on Lars Backstrom, Eric Sun and Cameron Marlow's "Find Me If You Can: Improving Geographical Prediction with Social and Spatial Proximity"
+
+Author: Tyler Finethy
+Date Created: June 2014
+
+find-me.py:
+	

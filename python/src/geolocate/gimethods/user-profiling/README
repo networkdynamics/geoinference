@@ -1,0 +1,15 @@
+user-profiling
+
+A twitter-based geolocation inference model based on the paper, "Towards Social User Profiling: Unified and Discriminative Influence Model for Inferring Home Locations."
+
+Author: Tyler Finethy
+Date Created: May 2014
+
+user-profiling.py:
+	class UserProfilingMethod - extends GIMethod, requires model_dir, dataset and settings. 
+	class UserProfilingModel - extends GIModel, initialized through GIMethod.
+	class UserProfiling - Implementation of the paper, runs a global prediction algorithm until the unknown-location users predicted locations converge. 
+
+
+
+

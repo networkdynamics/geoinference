@@ -1,0 +1,21 @@
+This implements the method in "Location Prediction in Social Media Based on Tie Strength" by Jeffrey McGee, James Caverlee, Zhiyuan Cheng. 
+
+The method consider tie strenghs of friends, followers and mentions relationship using regression tree to estimate the location of a user. It improves and extends the method used to locate Facebook users. However, since we don't have friends and followers information, the implementation of this method will only use mentions for now. 
+
+Features:
+	utils.contact_vector() builds feature vector of a contact c for a target user u
+
+	The features presented in the paper include:
+		- is_friend: c is u's friend 	(NOT IN OUR IMPLEMENTATION)
+		- is_follower: c is u's follower 	(NOT IN OUR IMPLEMENTATION)
+		- is_friend and is_follower 	(NOT IN OUR IMPLEMENTATION)
+		- mnt_to: the number of time u is mentioned c in u's tweets
+		- mnt_back: the number of time c is mentioned u in c's tweets
+		- loc_err: mean location error of c (difference between geotags and self-reported location in user location field)
+		- fnd_count: number of friends of c
+		- flw_count: number of followers of c
+		- acc_type: c has public or private account
+		- st_count: number of edge in social triangle that c and u share 	(ONLY IN THE MENTION NETWORK FOR OUR IMPLEMENTATION)
+
+Training and inferring:
+	A user is selected as a target user when this user has at least a certain number of geotags in its tweets (3 in the paper). All user are added to the model. Then inference of a user is based on the contacts that were from the training dataset. If no contact from the user was trained, then this implementation output an empty location. This was decided to adjust to the particular input format that we have for inference. 
