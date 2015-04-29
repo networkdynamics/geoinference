@@ -63,4 +63,4 @@ cite the paper associated with it.
 If you have discovered a bug in the build software or want to report an error in
 the library, please create a new
 [Issue](https://github.com/networkdynamics/geoinference/issues) on our github page.
-# geoinference
+
