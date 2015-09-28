@@ -141,7 +141,7 @@ public class CreateDataset {
         AtomicInteger filesProcessed = new AtomicInteger();
         final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
 
-        Cache<File,PrintWriter> fileWriters = 
+        LoadingCache<File,PrintWriter> fileWriters = 
             CacheBuilder.newBuilder()
             .maximumSize(MAX_OPEN_FILES)
             .removalListener(new RemovalListener<File,PrintWriter>() {
@@ -256,7 +256,7 @@ public class CreateDataset {
             
             // TODO(?): check that the file isn't too big to process in memory
             if (isTooBigToProcessInMemory(tmpFile)) {
-                throw new UnsupportedOperatinException("please file a ticket in github");
+                throw new UnsupportedOperationException("please file a ticket in github");
             }
             
             List<JSONObject> sortedPosts = new ArrayList<JSONObject>(1_000_000);
