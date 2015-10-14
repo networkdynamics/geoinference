@@ -5,7 +5,7 @@
 
 # install all dependencies 
 # list package names here
-array=(numpy scipy nltk haversine geographiclib tinysegmenter pyshp shapely geopy requests)
+array=(numpy scipy nltk haversine geographiclib tinysegmenter pyshp shapely geopy requests cython networkx jsonlib)
 
 # use -u to specify that the packages are installed for user
 # use -s, installed with sudo
@@ -43,8 +43,8 @@ ${SUDO} pip install${USER} --install-option="--prefix=" -U scikit-learn
 
 # installing zen
 echo "~~~ Installing zen. Package will be save under directory ${DIR}"
-git clone git://github.com/networkdynamics/zenlib.git ${DIR}
+git clone git://github.com/networkdynamics/zenlib.git ${DIR}/zenlib
 cd ${DIR}/zenlib/src 
-python setup.py install
+${SUDO} python setup.py install
 cd ../
-python -m zen.test`u
+python -m zen.test
