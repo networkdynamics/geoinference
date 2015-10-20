@@ -68,7 +68,7 @@ public class TotalVariation implements GeoinferenceMethod {
 
     public GeoinferenceModel load(JSONObject settings, File modelDir) {
         File userLocFile = new File(modelDir, "user-to-location.tsv");
-        if (userLocFile.exists()) {
+        if (!userLocFile.exists()) {
             throw new IllegalStateException(
                 "Expected to load saved TV model from " + userLocFile
                 + " but file did not exist in " + modelDir);
